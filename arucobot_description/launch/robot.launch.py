@@ -36,6 +36,16 @@ def generate_launch_description():
         output='screen'
     )
 
+    bridge_params = os.path.join(pkg_path,'config','gz_bridge.yaml')
+    ros_gz_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        arguments=[
+            '--ros-args',
+            '-p',
+            f'config_file:={bridge_params}',]
+    )
+
     spawn_robot = Node(package = "ros_gz_sim",
                            executable = "create",
                            arguments = ["-topic", "/robot_description",
@@ -58,5 +68,6 @@ def generate_launch_description():
             description='Use sim time if true'),
 
         node_robot_state_publisher,
-        spawn_robot
+        spawn_robot,
+        ros_gz_bridge,
     ])
