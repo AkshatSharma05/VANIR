@@ -1,0 +1,4 @@
+source;share/arucobot_description/local_setup.bash
+source;share/arucobot_description/local_setup.dsv
+source;share/arucobot_description/local_setup.sh
+source;share/arucobot_description/local_setup.zsh

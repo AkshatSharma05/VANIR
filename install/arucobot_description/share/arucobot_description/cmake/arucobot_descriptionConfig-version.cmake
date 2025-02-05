@@ -1,0 +1,1 @@
+/home/akshat/projects/arucobot/src/build/arucobot_description/ament_cmake_core/arucobot_descriptionConfig-version.cmake

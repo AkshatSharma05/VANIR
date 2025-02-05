@@ -3,22 +3,6 @@
 
     <xacro:include filename="inertial_macros.xacro"/>
 
-    <material name="white">
-        <color rgba="1 1 1 1" />
-    </material>
-
-    <material name="orange">
-        <color rgba="1 0.3 0.1 1"/>
-    </material>
-
-    <material name="blue">
-        <color rgba="0.2 0.2 1 1"/>
-    </material>
-
-    <material name="black">
-        <color rgba="0 0 0 1"/>
-    </material>
-
     <!-- BASE LINK -->
 
     <link name="base_link">
@@ -130,69 +114,40 @@
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_sphere>
     </link>
-<joint name="camera_joint" type="fixed">
-    <axis xyz="0 0 0"/>
-    <origin rpy="0 0 0" xyz="0.27 0 0.14"/>
-    <parent link="base_link"/>
-    <child link="camera_link"/>
-  </joint>
 
-<joint name="camera_optical_joint" type="fixed">
-    <parent link="camera_link"/>
-    <child link="camera_link_optical"/>
-    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
-  </joint>
 
-<link name="camera_link_optical"></link>
+    <xacro:property name="camera_link" value="0.05" /> <!-- Size of square 'camera' box -->
 
- <link name="camera_link">
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0.05 0.05 0.05"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>     <!-- roll pitch and yaw in radians and xyz in meters-->
-      <geometry> 
-        <box size="0.05 0.05 0.05"/>
-      </geometry>
-      <material name="red"/>
-    </visual>
-    <inertial>
-      <mass value="1e-5"/>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
-    </inertial>
-  </link>
+    <joint name="camera_joint" type="fixed">
+        <axis xyz="0 1 0" />
+        <origin xyz="0.2 0.0 0.17" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="mr_robot/base_link/depth_camera1"/>
+    </joint>
 
-  <joint name="depth_camera_joint" type="fixed">
-    <axis xyz="0 0 0" />
-    <origin xyz="0.27 0.1 0.14" rpy="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="mr_robot/base_link/depth_camera"/>
-  </joint>
+    <!-- Camera -->
+    <link name="mr_robot/base_link/depth_camera1">
+        <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+        </collision>
 
- 
-  <link name="mr_robot/base_link/depth_camera">
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-    <box size="0.05 0.05 0.05"/>
-      </geometry>
-    </collision>
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-    <box size="0.05 0.05 0.05"/>
-      </geometry>
-      <material name="dark_blue"/>
-    </visual>
-    <inertial>
-      <mass value="1e-5" />
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
-    </inertial>
-  </link>
+        <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+        <box size="${camera_link} ${camera_link} ${camera_link}"/>
+        </geometry>
+        <material name="red"/>
+        </visual>
+
+
+        <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+        </inertial>
+    </link>
     
 </robot>
