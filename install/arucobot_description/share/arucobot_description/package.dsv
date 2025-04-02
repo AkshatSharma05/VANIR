@@ -1,8 +1,0 @@
-source;share/arucobot_description/hook/cmake_prefix_path.ps1
-source;share/arucobot_description/hook/cmake_prefix_path.dsv
-source;share/arucobot_description/hook/cmake_prefix_path.sh
-source;share/arucobot_description/local_setup.bash
-source;share/arucobot_description/local_setup.dsv
-source;share/arucobot_description/local_setup.ps1
-source;share/arucobot_description/local_setup.sh
-source;share/arucobot_description/local_setup.zsh
