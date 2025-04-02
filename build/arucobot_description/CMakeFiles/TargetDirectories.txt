@@ -1,0 +1,9 @@
+/home/akshat/projects/arucobot/src/build/arucobot_description/CMakeFiles/uninstall.dir
+/home/akshat/projects/arucobot/src/build/arucobot_description/CMakeFiles/arucobot_description_uninstall.dir
+/home/akshat/projects/arucobot/src/build/arucobot_description/CMakeFiles/test.dir
+/home/akshat/projects/arucobot/src/build/arucobot_description/CMakeFiles/edit_cache.dir
+/home/akshat/projects/arucobot/src/build/arucobot_description/CMakeFiles/rebuild_cache.dir
+/home/akshat/projects/arucobot/src/build/arucobot_description/CMakeFiles/list_install_components.dir
+/home/akshat/projects/arucobot/src/build/arucobot_description/CMakeFiles/install.dir
+/home/akshat/projects/arucobot/src/build/arucobot_description/CMakeFiles/install/local.dir
+/home/akshat/projects/arucobot/src/build/arucobot_description/CMakeFiles/install/strip.dir
