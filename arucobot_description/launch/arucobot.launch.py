@@ -9,7 +9,7 @@ def generate_launch_description():
 
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
     pkg_arucobot_desc = get_package_share_directory('arucobot_description')
-    world_path= get_package_share_directory("arucobot_description")+'/worlds/world.sdf'
+    world_path= get_package_share_directory("arucobot_description")+'/worlds/new.sdf'
 
     # gz_sim = IncludeLaunchDescription(
     #             PythonLaunchDescriptionSource(
