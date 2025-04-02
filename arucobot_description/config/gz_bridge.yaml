@@ -17,7 +17,7 @@
   gz_type_name: "gz.msgs.Model"
   direction: GZ_TO_ROS
 
-- gz_topic_name: "/camera/image"
+- gz_topic_name: "/camera/image_raw"
   ros_topic_name: "/camera/image_raw"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "gz.msgs.Image"
@@ -39,4 +39,10 @@
   ros_topic_name: "/clock"
   ros_type_name: "rosgraph_msgs/msg/Clock"
   gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+- gz_topic_name: "/depth_camera"
+  ros_topic_name: "/depth_camera"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
   direction: GZ_TO_ROS

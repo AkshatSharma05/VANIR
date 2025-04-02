@@ -122,11 +122,11 @@
         <axis xyz="0 1 0" />
         <origin xyz="0.2 0.0 0.17" rpy="0 0 0"/>
         <parent link="base_link"/>
-        <child link="mr_robot/base_link/depth_camera1"/>
+        <child link="arucobot/base_link/depth_camera1"/>
     </joint>
 
     <!-- Camera -->
-    <link name="mr_robot/base_link/depth_camera1">
+    <link name="arucobot/base_link/depth_camera1">
         <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>

@@ -1,4 +1,0 @@
-Invoking command in '/home/akshat/projects/arucobot/src/build/arucobot_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/akshat/projects/arucobot/src/build/arucobot_description -- -j12 -l12
-Invoked command in '/home/akshat/projects/arucobot/src/build/arucobot_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/akshat/projects/arucobot/src/build/arucobot_description -- -j12 -l12
-Invoking command in '/home/akshat/projects/arucobot/src/build/arucobot_description': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/akshat/projects/arucobot/src/build/arucobot_description
-Invoked command in '/home/akshat/projects/arucobot/src/build/arucobot_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/akshat/projects/arucobot/src/build/arucobot_description

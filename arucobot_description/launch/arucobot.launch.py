@@ -9,14 +9,19 @@ def generate_launch_description():
 
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
     pkg_arucobot_desc = get_package_share_directory('arucobot_description')
+    world_path= get_package_share_directory("arucobot_description")+'/worlds/world.sdf'
 
-    # launch GZ Sim with empty world
-    gz_sim = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')
-                ),
-                launch_arguments={'gz_args': '-r empty.sdf'}.items()     
-            )
+    # gz_sim = IncludeLaunchDescription(
+    #             PythonLaunchDescriptionSource(
+    #                 os.path.join(pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py')
+    #             ),
+    #             launch_arguments={'gz_args': '-r empty.sdf'}.items()     
+    #         )
+    
+    gazebo=IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([pkg_ros_gz_sim, '/launch/gz_sim.launch.py']),launch_arguments={
+                    'gz_args' : world_path + " -v 4"
+                }.items())
     
     # spawn robot with rviz
     robot = IncludeLaunchDescription(
@@ -26,6 +31,6 @@ def generate_launch_description():
             )
 
     return LaunchDescription([
-        gz_sim,
+        gazebo,
         robot
     ])

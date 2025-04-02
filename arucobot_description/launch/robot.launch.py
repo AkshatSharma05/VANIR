@@ -59,6 +59,12 @@ def generate_launch_description():
 							output='screen'
                            )
 
+    joint_state_publisher = Node(
+            package="joint_state_publisher",
+            executable="joint_state_publisher",
+            name="joint_state_publisher",
+            output="screen",
+        )
 
     # Launch!
     return LaunchDescription([
@@ -70,5 +76,6 @@ def generate_launch_description():
         node_robot_state_publisher,
         spawn_robot,
         ros_gz_bridge,
-        rviz_node
+        rviz_node,
+        joint_state_publisher
     ])
