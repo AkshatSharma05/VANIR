@@ -6,7 +6,18 @@
     <!-- BASE LINK -->
 
     <link name="base_link">
-
+          <inertial>
+    <origin xyz="0.00024062344110785007 -0.00531572402780089 -0.10823524150435863" rpy="0 0 0"/>
+    <mass value="19.729806517747196"/>
+    <inertia ixx="0.871968" iyy="0.872497" izz="1.726537" ixy="0.000808" iyz="0.001686" ixz="0.000142"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </collision>
     </link>
 
 
@@ -32,7 +43,7 @@
                 <box size="0.3 0.3 0.15"/>
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.5" x="0.3" y="0.3" z="0.15">
+        <xacro:inertial_box mass="2.0" x="0.3" y="0.3" z="0.15">
             <origin xyz="0.15 0 0.075" rpy="0 0 0"/>
         </xacro:inertial_box>
     </link>
@@ -110,8 +121,8 @@
                 <sphere radius="0.05"/>
             </geometry>
         </collision>
-        <xacro:inertial_sphere mass="0.1" radius="0.05">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
+        <xacro:inertial_sphere mass="0.5" radius="0.05">
+            <origin xyz="0.24 0 0" rpy="0 0 0"/>
         </xacro:inertial_sphere>
     </link>
 

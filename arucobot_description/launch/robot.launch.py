@@ -65,17 +65,25 @@ def generate_launch_description():
             name="joint_state_publisher",
             output="screen",
         )
+    
+    static_transform_publisher_node = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_link']
+    )
 
     # Launch!
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
-            default_value='false',
+            default_value='true',
             description='Use sim time if true'),
 
         node_robot_state_publisher,
         spawn_robot,
         ros_gz_bridge,
         rviz_node,
-        joint_state_publisher
+        joint_state_publisher,
+        static_transform_publisher_node
     ])
