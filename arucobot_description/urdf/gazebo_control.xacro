@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-   <gazebo>
+   <!-- <gazebo>
       <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
          <right_joint>right_wheel_joint</right_joint>
          <left_joint>left_wheel_joint</left_joint>
@@ -9,24 +9,52 @@
          <wheel_separation>0.35</wheel_separation>
          <wheel_diameter>0.1</wheel_diameter>
 
-         <max_linear_acceleration>10</max_linear_acceleration>
+         <max_linear_acceleration>3</max_linear_acceleration>
 
          <topic>cmd_vel</topic>
 
-         <odom_topic>odom</odom_topic>
-         <frame_id>odom</frame_id>
          <child_frame_id>base_link</child_frame_id>
          <odom_publisher_frequency>100</odom_publisher_frequency>
-
          <tf_topic>/tf</tf_topic>
+
+         <publish_odom>true</publish_odom>
+         <publish_odom_tf>false</publish_odom_tf>
+         <publish_wheel_tf>true</publish_wheel_tf>
+     
+         <odometry_frame>odom</odometry_frame>
+         <robot_base_frame>base_link</robot_base_frame>
       </plugin>
-      
+    </gazebo> -->
+  <gazebo>  
       <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
-         <topic>joint_states</topic>
-         <joint_name>right_wheel_joint</joint_name>
-         <joint_name>left_wheel_joint</joint_name>
+         <topic>/joint_states</topic>
       </plugin>
    </gazebo>
+
+	<gazebo>
+		<plugin filename="gz-sim-diff-drive-system" 
+			name="gz::sim::systems::DiffDrive">
+			<left_joint>left_wheel_joint</left_joint>
+    		<right_joint>right_wheel_joint</right_joint>
+    		<wheel_separation>0.45</wheel_separation>
+    		<wheel_radius>0.06</wheel_radius>
+			<topic>cmd_vel</topic>
+
+    	</plugin>
+	</gazebo>
+
+
+	<gazebo>
+      <plugin
+        filename="gz-sim-odometry-publisher-system"
+        name="gz::sim::systems::OdometryPublisher">
+		<odom_frame>odom</odom_frame>
+		<robot_base_frame>base_link</robot_base_frame>
+		<odom_topic>/odom</odom_topic>
+		<tf_topic>/tf</tf_topic>
+
+      </plugin>
+	</gazebo>
 
 
    <!-- CAMERA -->
@@ -77,5 +105,39 @@
       </sensor>
 
 </gazebo>
+
+
+<gazebo reference="arucobot/base_link/gpu_lidar">
+  <sensor name='gpu_lidar' type='gpu_lidar'>"
+    <pose relative_to='arucobot/base_link/gpu_lidar'>0.001 0.006 0.1155 0 0 0</pose>
+    <frame_id>arucobot/base_link/gpu_lidar</frame_id>
+    <topic>/laser/scan</topic>
+    <update_rate>10</update_rate>
+    <ray>
+        <scan>
+            <horizontal>
+                <samples>300</samples>
+                <resolution>1</resolution>
+                <min_angle>-3.14</min_angle>
+                <max_angle>3.14</max_angle>
+            </horizontal>
+            <vertical>
+                <samples>1</samples>
+                <resolution>0.01</resolution>
+                <min_angle>0</min_angle>
+                <max_angle>0</max_angle>
+            </vertical>
+        </scan>
+        <range>
+            <min>0.01</min>
+            <max>10.0</max>
+            <resolution>0.01</resolution>
+        </range>
+    </ray>
+    <always_on>1</always_on>
+    <visualize>true</visualize>
+</sensor>
+</gazebo>
+  
 
 </robot>

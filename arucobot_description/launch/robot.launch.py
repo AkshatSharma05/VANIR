@@ -11,8 +11,7 @@ import xacro
 
 def generate_launch_description():
 
-    use_sim_time = LaunchConfiguration('use_sim_time')
-
+    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('arucobot_description'))
     xacro_file = os.path.join(pkg_path,'urdf','robot.urdf.xacro')
@@ -33,6 +32,7 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         arguments=['-d', rviz_path],
+        parameters=[{'use_sim_time': True}],
         output='screen'
     )
 
@@ -65,17 +65,24 @@ def generate_launch_description():
             name="joint_state_publisher",
             output="screen",
         )
+    
+    static_transform_publisher_node = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_link']
+    )
 
-    # Launch!
     return LaunchDescription([
         DeclareLaunchArgument(
             'use_sim_time',
-            default_value='false',
+            default_value='true',
             description='Use sim time if true'),
 
         node_robot_state_publisher,
         spawn_robot,
         ros_gz_bridge,
         rviz_node,
-        joint_state_publisher
+        # joint_state_publisher,
+        static_transform_publisher_node
     ])
