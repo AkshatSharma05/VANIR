@@ -8,8 +8,8 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 def generate_launch_description():
 
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
-    pkg_arucobot_desc = get_package_share_directory('arucobot_description')
-    world_path = pkg_arucobot_desc + '/worlds/new.sdf'
+    pkg_vanir_desc = get_package_share_directory('vanir_description')
+    world_path = pkg_vanir_desc + '/worlds/new.sdf'
 
     # gz_sim = IncludeLaunchDescription(
     #             PythonLaunchDescriptionSource(
@@ -27,7 +27,7 @@ def generate_launch_description():
     # spawn robot with rviz
     robot = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
-                    os.path.join(pkg_arucobot_desc, 'launch', 'robot.launch.py')
+                    os.path.join(pkg_vanir_desc, 'launch', 'robot.launch.py')
                 )
             )
 

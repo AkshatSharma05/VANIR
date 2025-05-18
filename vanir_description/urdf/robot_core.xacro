@@ -133,11 +133,11 @@
         <axis xyz="0 1 0" />
         <origin xyz="0.2 0.0 0.1" rpy="0 0 0"/>
         <parent link="base_link"/>
-        <child link="arucobot/base_link/depth_camera1"/>
+        <child link="vanir/base_link/depth_camera1"/>
     </joint>
 
     <!-- Camera -->
-    <link name="arucobot/base_link/depth_camera1">
+    <link name="vanir/base_link/depth_camera1">
         <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
@@ -165,11 +165,11 @@
  <!-- LIDAR SENSOR -->
     <joint name="lidar_joint" type="fixed">
         <parent link="base_link"/>
-        <child link="arucobot/base_link/gpu_lidar"/>
+        <child link="vanir/base_link/gpu_lidar"/>
         <origin xyz="0.04 0 0.18" rpy="0 0 0"/>
     </joint>
 
-    <link name="arucobot/base_link/gpu_lidar">
+    <link name="vanir/base_link/gpu_lidar">
         <visual>
             <geometry>
                 <cylinder radius="0.03" length="0.06"/>

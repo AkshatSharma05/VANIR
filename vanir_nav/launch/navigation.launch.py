@@ -8,7 +8,7 @@ from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
-    pkg_share = get_package_share_directory('arucobot_nav')
+    pkg_share = get_package_share_directory('vanir_nav')
     pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')

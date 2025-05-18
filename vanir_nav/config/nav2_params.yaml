@@ -310,7 +310,7 @@ map_server:
         frame_id: map
         topic_name: /map
         use_sim_time: True
-        yaml_filename: "/home/akshat/arucobot/src/arucobot_nav/config/my_map.yaml"
+        yaml_filename: "/home/akshat/vanir/src/vanir_nav/config/my_map.yaml"
 
 map_saver:
     ros__parameters:

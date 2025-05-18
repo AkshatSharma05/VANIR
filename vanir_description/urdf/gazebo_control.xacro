@@ -57,7 +57,7 @@
 
 
    <!-- CAMERA -->
-<gazebo reference="arucobot/base_link/depth_camera1">
+<gazebo reference="vanir/base_link/depth_camera1">
 <plugin filename="gz-harmonic-camera-system" name="gz::harmonic::systems::CameraSystem"/>
     <sensor type="camera" name="camera">
       <visualize>true</visualize>
@@ -82,7 +82,7 @@
   </gazebo>
 
 <!-- Depth camera -->
-<gazebo reference="arucobot/base_link/depth_camera1">
+<gazebo reference="vanir/base_link/depth_camera1">
   <sensor name="depth_camera1" type="depth_camera">
         <always_on>1</always_on>
         <enable_metrics>1</enable_metrics>
@@ -106,10 +106,10 @@
 </gazebo>
 
 
-<gazebo reference="arucobot/base_link/gpu_lidar">
+<gazebo reference="vanir/base_link/gpu_lidar">
   <sensor name='gpu_lidar' type='gpu_lidar'>"
-    <pose relative_to='arucobot/base_link/gpu_lidar'>0.001 0.006 0.1155 0 0 0</pose>
-    <frame_id>arucobot/base_link/gpu_lidar</frame_id>
+    <pose relative_to='vanir/base_link/gpu_lidar'>0.001 0.006 0.1155 0 0 0</pose>
+    <frame_id>vanir/base_link/gpu_lidar</frame_id>
     <topic>/laser/scan</topic>
     <update_rate>10</update_rate>
     <ray>

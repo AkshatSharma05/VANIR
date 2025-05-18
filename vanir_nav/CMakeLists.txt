@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(arucobot_description)
+project(vanir_nav)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -24,8 +24,14 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY config launch urdf worlds meshes
+  DIRECTORY config launch scripts
   DESTINATION share/${PROJECT_NAME}
+)
+
+install(PROGRAMS
+  scripts/aruco.py
+  
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()

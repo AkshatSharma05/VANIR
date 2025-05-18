@@ -13,7 +13,7 @@ def generate_launch_description():
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     # Process the URDF file
-    pkg_path = os.path.join(get_package_share_directory('arucobot_description'))
+    pkg_path = os.path.join(get_package_share_directory('vanir_description'))
     xacro_file = os.path.join(pkg_path,'urdf','robot.urdf.xacro')
     robot_description_config = xacro.process_file(xacro_file)
     rviz_path = os.path.join(pkg_path, 'config', 'display.rviz')
@@ -49,7 +49,7 @@ def generate_launch_description():
     spawn_robot = Node(package = "ros_gz_sim",
                            executable = "create",
                            arguments = ["-topic", "/robot_description",
-                                        "-name", "arucobot",
+                                        "-name", "vanir",
                                         "-allow_renaming", "true",
                                         "-z", "1.0",
                                         "-x", "2.0",
