@@ -9,7 +9,7 @@ def generate_launch_description():
 
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
     pkg_arucobot_desc = get_package_share_directory('arucobot_description')
-    world_path= get_package_share_directory("arucobot_description")+'/worlds/new.sdf'
+    world_path = pkg_arucobot_desc + '/worlds/new.sdf'
 
     # gz_sim = IncludeLaunchDescription(
     #             PythonLaunchDescriptionSource(
@@ -19,7 +19,8 @@ def generate_launch_description():
     #         )
     
     gazebo=IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([pkg_ros_gz_sim, '/launch/gz_sim.launch.py']),launch_arguments={
+        PythonLaunchDescriptionSource([pkg_ros_gz_sim, '/launch', '/gz_sim.launch.py']),
+        launch_arguments={
                     'gz_args' : world_path + " -v 4"
                 }.items())
     

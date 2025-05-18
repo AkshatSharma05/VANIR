@@ -24,8 +24,14 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY config launch 
+  DIRECTORY config launch scripts
   DESTINATION share/${PROJECT_NAME}
+)
+
+install(PROGRAMS
+  scripts/aruco.py
+  
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()
