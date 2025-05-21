@@ -1,50 +1,16 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="vanir_rotated">
 
   <link name="base_link">
     <inertial>
-      <origin xyz="0.000219763 -0.000623028 0.0710795" rpy="0 0 0"/>
-      <mass value="92.4179"/>
-      <inertia ixx="3.16969" ixy="2.70317e-05" ixz="1.26673e-06" iyy="1.30381" iyz="0.00479148" izz="3.85167"/>
+      <origin xyz="0.0691514 0.00840293 0.0780423" rpy="0 0 0"/>
+      <mass value="86.4984"/>
+      <inertia ixx="1.23316" ixy="-2.70276e-05" ixz="-0.00435928" iyy="2.75808" iyz="1.88929e-06" izz="3.50466"/>
     </inertial>
-
-    <!-- Part front_caster -->
-    <visual>
-      <origin xyz="0.000218796 0.00283755 0.000920176" rpy="0 -0 0"/>
-      <geometry>
-        <mesh filename="file://$(find vanir_description)/meshes/front_caster.stl"/>
-      </geometry>
-      <material name="front_caster_material">
-        <color rgba="0.301961 0.301961 0.301961 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.000218796 0.00283755 0.000920176" rpy="0 -0 0"/>
-      <geometry>
-        <mesh filename="file://$(find vanir_description)/meshes/front_caster.stl"/>
-      </geometry>
-    </collision>
-
-    <!-- Part rear_caster -->
-    <visual>
-      <origin xyz="0.000218796 0.00276511 0.000920176" rpy="0 -0 0"/>
-      <geometry>
-        <mesh filename="file://$(find vanir_description)/meshes/rear_caster.stl"/>
-      </geometry>
-      <material name="rear_caster_material">
-        <color rgba="0.301961 0.301961 0.301961 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.000218796 0.00276511 0.000920176" rpy="0 -0 0"/>
-      <geometry>
-        <mesh filename="file://$(find vanir_description)/meshes/rear_caster.stl"/>
-      </geometry>
-    </collision>
 
     <!-- Part base_link -->
     <visual>
-      <origin xyz="0.000218796 4.86233e-05 0.000920176" rpy="0 -0 0"/>
+      <origin xyz="0.0684338 0.00840189 0.000920176" rpy="0 -0 1.5708"/>
       <geometry>
         <mesh filename="file://$(find vanir_description)/meshes/base_link.stl"/>
       </geometry>
@@ -53,22 +19,22 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0.000218796 4.86233e-05 0.000920176" rpy="0 -0 0"/>
+      <origin xyz="0.0684338 0.00840189 0.000920176" rpy="0 -0 1.5708"/>
       <geometry>
         <mesh filename="file://$(find vanir_description)/meshes/base_link.stl"/>
       </geometry>
     </collision>
   </link>
 
-  <!-- Link dof_wheel_r -->
+  <!-- Right Wheel -->
   <link name="dof_wheel_r">
     <inertial>
-      <origin xyz="3.28288e-18 -8.8737e-19 -0.025" rpy="0 0 0"/>
+      <origin xyz="-1.05949e-17 -8.8737e-19 -0.025" rpy="0 0 0"/>
       <mass value="0.908215"/>
-      <inertia ixx="0.00138266" ixy="0" ixz="0" iyy="0.00138266" iyz="0" izz="0.0023869"/>
+      <inertia ixx="0.00138266" ixy="0" ixz="5.88417e-35" iyy="0.00138266" iyz="0" izz="0.0023869"/>
     </inertial>
     <visual>
-      <origin xyz="0 -4.44523e-18 0.1625" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-1.38778e-17 -4.44523e-18 0.1625" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file://$(find vanir_description)/meshes/dof_wheel_r.stl"/>
       </geometry>
@@ -77,27 +43,26 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0 -4.44523e-18 0.1625" rpy="-1.5708 -1.5708 0"/>
+      <origin xyz="-1.38778e-17 -4.44523e-18 0.1625" rpy="-1.5708 -1.5708 0"/>
       <geometry>
         <mesh filename="file://$(find vanir_description)/meshes/dof_wheel_r.stl"/>
       </geometry>
     </collision>
   </link>
-
   <joint name="wheel_r" type="continuous">
-    <origin xyz="-0.162281 4.86233e-05 -0.005" rpy="1.5708 -0 1.5708"/>
+    <origin xyz="0.0684338 -0.154098 -0.0025" rpy="1.5708 -0 3.14159"/>
     <parent link="base_link"/>
     <child link="dof_wheel_r"/>
-    <axis xyz="0 0 1"/>
+    <axis xyz="0 0 -1"/>
     <limit effort="10" velocity="10"/>
   </joint>
 
-  <!-- Link dof_wheel_l -->
+  <!-- Left Wheel -->
   <link name="dof_wheel_l">
     <inertial>
       <origin xyz="-3.28288e-18 -1.9388e-18 -0.025" rpy="0 0 0"/>
       <mass value="0.908215"/>
-      <inertia ixx="0.00138266" ixy="0" ixz="0" iyy="0.00138266" iyz="0" izz="0.0023869"/>
+      <inertia ixx="0.00138266" ixy="0" ixz="-5.88417e-35" iyy="0.00138266" iyz="0" izz="0.0023869"/>
     </inertial>
     <visual>
       <origin xyz="1.38778e-17 4.44523e-18 0.1625" rpy="1.5708 1.5708 0"/>
@@ -115,45 +80,42 @@
       </geometry>
     </collision>
   </link>
-
   <joint name="wheel_l" type="continuous">
-    <origin xyz="0.162719 4.86233e-05 -0.005" rpy="-1.5708 -0 1.5708"/>
+    <origin xyz="0.0684338 0.170902 -0.0025" rpy="-1.5708 -0 3.14159"/>
     <parent link="base_link"/>
     <child link="dof_wheel_l"/>
-    <axis xyz="0 0 -1"/>
+    <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10"/>
   </joint>
 
-  <!-- CAMERA LINK -->
-<link name="vanir/base_link/depth_camera1">
-  <visual>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find vanir_description)/meshes/camera.stl"/>
-    </geometry>
-    <material name="camera_material">
-      <color rgba="0.301961 0.290196 0.262745 1.0"/>
-    </material>
-  </visual>
-  <collision>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find vanir_description)/meshes/camera.stl"/>
-    </geometry>
-  </collision>
-</link>
-
-
+  <!-- Camera -->
+  <link name="vanir/base_link/depth_camera1">
+    <visual>
+      <origin xyz="0.0760324 0.00840189 0.000920176" rpy="0 0 1.5708"/>
+      <geometry>
+        <mesh filename="file://$(find vanir_description)/meshes/camera.stl"/>
+      </geometry>
+      <material name="camera_material">
+        <color rgba="0.301961 0.290196 0.262745 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0760324 0.00840189 0.000920176" rpy="0 0 1.5708"/>
+      <geometry>
+        <mesh filename="file://$(find vanir_description)/meshes/camera.stl"/>
+      </geometry>
+    </collision>
+  </link>
   <joint name="camera_joint" type="fixed">
-    <origin xyz="0.000218796 -0.00755 0.0" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="vanir/base_link/depth_camera1"/>
+    <origin xyz="0.008 0.0 0.001" rpy="0 0 0"/>
   </joint>
 
-  <!-- LIDAR LINK -->
+  <!-- Lidar -->
   <link name="vanir/base_link/gpu_lidar">
     <visual>
-      <origin xyz="0.000218796 4.86233e-05 0.000920176" rpy="0 0 0"/>
+      <origin xyz="0.0684338 0.00840189 0.000920176" rpy="0 0 1.5708"/>
       <geometry>
         <mesh filename="file://$(find vanir_description)/meshes/lidar.stl"/>
       </geometry>
@@ -162,17 +124,85 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="0.000218796 4.86233e-05 0.000920176" rpy="0 0 0"/>
+      <origin xyz="0.0684338 0.00840189 0.000920176" rpy="0 0 1.5708"/>
       <geometry>
         <mesh filename="file://$(find vanir_description)/meshes/lidar.stl"/>
       </geometry>
     </collision>
   </link>
-
   <joint name="lidar_joint" type="fixed">
-    <origin xyz="0.000218796 4.86233e-05 0.000920176" rpy="0 0 0"/>
     <parent link="base_link"/>
     <child link="vanir/base_link/gpu_lidar"/>
+    <origin xyz="-0.008 0.0 0.000920176" rpy="0 0 0"/>
   </joint>
+
+  <!-- Front Caster Link -->
+<link name="front_caster">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vanir_description)/meshes/front_caster.stl"/>
+    </geometry>
+    <material name="front_caster_material">
+      <color rgba="0.301961 0.301961 0.301961 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vanir_description)/meshes/front_caster.stl"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- Joint connecting front caster to base_link -->
+<joint name="front_caster_joint" type="fixed">
+  <origin xyz="0.0656448 0.00840189 0.000920176" rpy="0 -0 1.5708"/>
+  <parent link="base_link"/>
+  <child link="front_caster"/>
+</joint>
+
+
+<!-- Rear Caster Link -->
+<link name="rear_caster">
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vanir_description)/meshes/rear_caster.stl"/>
+    </geometry>
+    <material name="rear_caster_material">
+      <color rgba="0.301961 0.301961 0.301961 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find vanir_description)/meshes/rear_caster.stl"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- Joint connecting rear caster to base_link -->
+<joint name="rear_caster_joint" type="fixed">
+  <origin xyz="0.0657173 0.00840189 0.000920176" rpy="0 -0 1.5708"/>
+  <parent link="base_link"/>
+  <child link="rear_caster"/>
+</joint>
+
+<gazebo reference="rear_caster">
+  <mu1>2.0</mu1>
+  <mu2>2.0</mu2>
+  <kp>100000.0</kp>
+  <kd>1.0</kd>
+  <material>Gazebo/Black</material>
+</gazebo>
+
+<gazebo reference="front_caster">
+  <mu1>2.0</mu1>
+  <mu2>2.0</mu2>
+  <kp>100000.0</kp>
+  <kd>1.0</kd>
+  <material>Gazebo/Black</material>
+</gazebo>
 
 </robot>

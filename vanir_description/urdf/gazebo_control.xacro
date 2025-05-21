@@ -36,8 +36,8 @@
 			name="gz::sim::systems::DiffDrive">
 			<left_joint>wheel_l</left_joint>
     		<right_joint>wheel_r</right_joint>
-    		<wheel_separation>0.45</wheel_separation>
-    		<wheel_radius>0.06</wheel_radius>
+    		<wheel_separation>0.325</wheel_separation>
+    		<wheel_radius>0.145</wheel_radius>
 			<topic>cmd_vel</topic>
     	</plugin>
 	</gazebo>
@@ -59,6 +59,7 @@
 <gazebo reference="vanir/base_link/depth_camera1">
 <plugin filename="gz-harmonic-camera-system" name="gz::harmonic::systems::CameraSystem"/>
     <sensor type="camera" name="camera">
+     <pose relative_to='vanir/base_link/depth_camera1'>0.35 0.00 0.1 0 0 0</pose>
       <visualize>true</visualize>
       <always_on>true</always_on>
       <update_rate>10.0</update_rate>
@@ -101,7 +102,6 @@
           </clip>
         </camera>
       </sensor>
-
 </gazebo>
 
 
@@ -136,6 +136,5 @@
     <visualize>true</visualize>
 </sensor>
 </gazebo>
-  
 
 </robot>
