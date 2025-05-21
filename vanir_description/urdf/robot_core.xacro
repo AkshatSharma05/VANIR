@@ -10,7 +10,7 @@
 
     <!-- Part base_link -->
     <visual>
-      <origin xyz="0.0684338 0.00840189 0.000920176" rpy="0 -0 -1.5708"/>
+      <origin xyz="0.0684338 0.00840189 0.000920176" rpy="0 -0 1.5708"/>
       <geometry>
         <mesh filename="file://$(find vanir_description)/meshes/base_link.stl"/>
       </geometry>
