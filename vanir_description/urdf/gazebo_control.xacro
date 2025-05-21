@@ -36,7 +36,7 @@
 			name="gz::sim::systems::DiffDrive">
 			<left_joint>wheel_l</left_joint>
     		<right_joint>wheel_r</right_joint>
-    		<wheel_separation>0.325</wheel_separation>
+    		<wheel_separation>0.42</wheel_separation>
     		<wheel_radius>0.145</wheel_radius>
 			<topic>cmd_vel</topic>
     	</plugin>
@@ -84,6 +84,7 @@
 <!-- Depth camera -->
 <gazebo reference="vanir/base_link/depth_camera1">
   <sensor name="depth_camera1" type="depth_camera">
+  <pose relative_to='vanir/base_link/depth_camera1'>0.0 0.3 0.3 0 0 0</pose>
         <always_on>1</always_on>
         <enable_metrics>1</enable_metrics>
         <topic>depth_camera</topic>
