@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="vanir_rotated">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="vanir">
 
   <link name="base_link">
     <inertial>
@@ -50,7 +50,7 @@
     </collision>
   </link>
   <joint name="wheel_r" type="continuous">
-    <origin xyz="0.0684338 -0.154098 -0.0025" rpy="1.5708 -0 3.14159"/>
+    <origin xyz="0.0684338 -0.2 -0.0025" rpy="1.5708 0 0"/>
     <parent link="base_link"/>
     <child link="dof_wheel_r"/>
     <axis xyz="0 0 -1"/>
@@ -81,7 +81,7 @@
     </collision>
   </link>
   <joint name="wheel_l" type="continuous">
-    <origin xyz="0.0684338 0.170902 -0.0025" rpy="-1.5708 -0 3.14159"/>
+    <origin xyz="0.0684338 0.22 -0.0025" rpy="-1.5708 0 0"/>
     <parent link="base_link"/>
     <child link="dof_wheel_l"/>
     <axis xyz="0 0 1"/>
