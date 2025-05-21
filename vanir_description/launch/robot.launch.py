@@ -52,7 +52,7 @@ def generate_launch_description():
                                         "-name", "vanir",
                                         "-allow_renaming", "true",
                                         "-z", "1.0",
-                                        "-x", "2.0",
+                                        "-x", "0.0",
                                         "-y", "0.0",
                                         "-Y", "-1.57",
                                         ],
@@ -70,7 +70,7 @@ def generate_launch_description():
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_transform_publisher',
-        arguments=['0', '0', '0', '0', '0', '0', 'odom', 'base_link']
+        arguments=['', '0', '0', '0', '0', '0', 'odom', 'base_link']
     )
 
     return LaunchDescription([

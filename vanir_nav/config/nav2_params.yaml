@@ -18,20 +18,20 @@ amcl:
         laser_min_range: -1.0
         laser_model_type: "likelihood_field"
         max_beams: 60
-        max_particles: 2000
-        min_particles: 500
+        max_particles: 3000
+        min_particles: 800
         set_initial_pose: true
-        initial_pose: #1.987 -0.000 -1.568
-            x: 1.987
-            y: -0.0
-            z: 0.0
-            yaw: -1.568
+        initial_pose: #0.014 -0.007 -1.578
+            x: 0.014
+            y: -0.007
+            z: -1.578
+            yaw: -1.56
         odom_frame_id: "odom"
         pf_err: 0.05
         pf_z: 0.99
         recovery_alpha_fast: 0.0
         recovery_alpha_slow: 0.0
-        resample_interval: 1
+        resample_interval   : 1
         robot_model_type: "nav2_amcl::DifferentialMotionModel"
         save_pose_rate: 0.5
         sigma_hit: 0.2
@@ -39,7 +39,7 @@ amcl:
         transform_tolerance: 1.0
         update_min_a: 0.2
         update_min_d: 0.25
-        z_hit: 0.5
+        z_hit: 0.8
         z_max: 0.05
         z_rand: 0.5
         z_short: 0.05

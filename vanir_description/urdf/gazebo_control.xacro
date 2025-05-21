@@ -34,12 +34,11 @@
 	<gazebo>
 		<plugin filename="gz-sim-diff-drive-system" 
 			name="gz::sim::systems::DiffDrive">
-			<left_joint>left_wheel_joint</left_joint>
-    		<right_joint>right_wheel_joint</right_joint>
-    		<wheel_separation>0.45</wheel_separation>
-    		<wheel_radius>0.06</wheel_radius>
+			<left_joint>wheel_l</left_joint>
+    		<right_joint>wheel_r</right_joint>
+    		<wheel_separation>0.42</wheel_separation>
+    		<wheel_radius>0.145</wheel_radius>
 			<topic>cmd_vel</topic>
-
     	</plugin>
 	</gazebo>
 
@@ -60,6 +59,7 @@
 <gazebo reference="vanir/base_link/depth_camera1">
 <plugin filename="gz-harmonic-camera-system" name="gz::harmonic::systems::CameraSystem"/>
     <sensor type="camera" name="camera">
+     <pose relative_to='vanir/base_link/depth_camera1'>0.35 0.00 0.1 0 0 0</pose>
       <visualize>true</visualize>
       <always_on>true</always_on>
       <update_rate>10.0</update_rate>
@@ -84,6 +84,7 @@
 <!-- Depth camera -->
 <gazebo reference="vanir/base_link/depth_camera1">
   <sensor name="depth_camera1" type="depth_camera">
+  <pose relative_to='vanir/base_link/depth_camera1'>0.0 0.3 0.3 0 0 0</pose>
         <always_on>1</always_on>
         <enable_metrics>1</enable_metrics>
         <topic>depth_camera</topic>
@@ -102,13 +103,12 @@
           </clip>
         </camera>
       </sensor>
-
 </gazebo>
 
 
 <gazebo reference="vanir/base_link/gpu_lidar">
   <sensor name='gpu_lidar' type='gpu_lidar'>"
-    <pose relative_to='vanir/base_link/gpu_lidar'>0.001 0.006 0.1155 0 0 0</pose>
+    <pose relative_to='vanir/base_link/gpu_lidar'>0.001 0.006 0.2 0 0 0</pose>
     <frame_id>vanir/base_link/gpu_lidar</frame_id>
     <topic>/laser/scan</topic>
     <update_rate>10</update_rate>
@@ -137,6 +137,5 @@
     <visualize>true</visualize>
 </sensor>
 </gazebo>
-  
 
 </robot>
