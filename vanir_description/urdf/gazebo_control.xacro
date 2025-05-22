@@ -34,10 +34,10 @@
 	<gazebo>
 		<plugin filename="gz-sim-diff-drive-system" 
 			name="gz::sim::systems::DiffDrive">
-			<left_joint>wheel_l</left_joint>
-    		<right_joint>wheel_r</right_joint>
+			<left_joint>wheel_r</left_joint>
+    		<right_joint>wheel_l</right_joint>
     		<wheel_separation>0.42</wheel_separation>
-    		<wheel_radius>0.145</wheel_radius>
+    		<wheel_radius>0.0725</wheel_radius>
 			<topic>cmd_vel</topic>
     	</plugin>
 	</gazebo>
