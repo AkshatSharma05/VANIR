@@ -21,7 +21,7 @@ amcl:
         max_particles: 3000
         min_particles: 800
         set_initial_pose: true
-        initial_pose: #0.014 -0.007 -1.578
+        initial_pose: #0.337 -0.146 -1.582
             x: 0.014
             y: -0.007
             z: -1.578

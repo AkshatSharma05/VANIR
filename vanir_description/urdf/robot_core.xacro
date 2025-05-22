@@ -49,7 +49,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="wheel_r" type="continuous">
+  <joint name="wheel_l" type="continuous">
     <origin xyz="0.0684338 -0.2 -0.0" rpy="1.5708 0 0"/>
     <parent link="base_link"/>
     <child link="dof_wheel_r"/>
@@ -80,7 +80,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="wheel_l" type="continuous">
+  <joint name="wheel_r" type="continuous">
     <origin xyz="0.0684338 0.22 -0.0" rpy="-1.5708 0 0"/>
     <parent link="base_link"/>
     <child link="dof_wheel_l"/>
