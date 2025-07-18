@@ -9,7 +9,7 @@ def generate_launch_description():
 
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
     pkg_vanir_desc = get_package_share_directory('vanir_description')
-    world_path = pkg_vanir_desc + '/worlds/new.sdf'
+    world_path = pkg_vanir_desc + '/worlds/actor.sdf'
 
     # gz_sim = IncludeLaunchDescription(
     #             PythonLaunchDescriptionSource(
